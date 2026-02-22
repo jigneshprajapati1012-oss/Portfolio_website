@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JIGNESH PRAJAPATI | Creative Designer</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2a 100%);
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: 'Syne', sans-serif; }
+
+    /* Animated Background Blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #00f5ff, #0080ff);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .blob-2 {
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(135deg, #ff00ff, #ff0080);
+      top: 30%;
+      right: -15%;
+      animation-delay: -5s;
+    }
+
+    .blob-3 {
+      width: 450px;
+      height: 450px;
+      background: linear-gradient(135deg, #8000ff, #4000ff);
+      bottom: 10%;
+      left: 20%;
+      animation-delay: -10s;
+    }
+
+    .blob-4 {
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg, #00ffcc, #00ff80);
+      top: 60%;
+      left: -10%;
+      animation-delay: -15s;
+    }
+    
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      25% { transform: translate(30px, -30px) scale(1.05) rotate(5deg); }
+      50% { transform: translate(-20px, 20px) scale(0.95) rotate(-5deg); }
+      75% { transform: translate(20px, 30px) scale(1.02) rotate(3deg); }
+    }
+
+    /* Frosted Glass Effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-15px) rotateX(5deg);
+      box-shadow: 
+        0 35px 70px rgba(0, 245, 255, 0.15),
+        0 15px 30px rgba(255, 0, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      border-color: rgba(0, 245, 255, 0.3);
+    }
+
+    /* Glass Pill Button */
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      padding: 14px 32px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 
+        0 0 20px rgba(0, 245, 255, 0.2),
+        0 0 40px rgba(255, 0, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-pill::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50px;
+      padding: 2px;
+      background: linear-gradient(135deg, #00f5ff, #ff00ff, #8000ff);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+      transition: opacity 0.4s;
+    }
+
+    .glass-pill:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 0 30px rgba(0, 245, 255, 0.4),
+        0 0 60px rgba(255, 0, 255, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-pill:hover::before {
+      opacity: 1;
+    }
+
+    /* Neon Glow Effects */
+    .neon-cyan {
+      text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 40px #00f5ff;
+    }
+
+    .neon-magenta {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    }
+
+    .neon-purple {
+      text-shadow: 0 0 10px #8000ff, 0 0 20px #8000ff, 0 0 40px #8000ff;
+    }
+
+    /* Skill Bar Glow */
+    .skill-bar {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 20px;
+      position: relative;
+      transition: width 1s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .skill-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Floating Animation for Cards */
+    .float-card {
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    .float-card:nth-child(2) { animation-delay: -2s; }
+    .float-card:nth-child(3) { animation-delay: -4s; }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Organic Shapes */
+    .organic-shape {
+      position: absolute;
+      background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 255, 0.1));
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      filter: blur(1px);
+      animation: morph 15s ease-in-out infinite;
+    }
+
+    @keyframes morph {
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+      75% { border-radius: 60% 30% 60% 40% / 70% 40% 50% 60%; }
+    }
+
+    /* Scroll Container */
+    .scroll-container {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .scroll-container::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00f5ff, #ff00ff);
+      border-radius: 3px;
+    }
+
+    /* Project Card Overlay */
+    .project-overlay {
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    /* Glowing Border Animation */
+    .glow-border {
+      position: relative;
+    }
+
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(45deg, #00f5ff, #ff00ff, #8000ff, #00f5ff);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: glowRotate 4s linear infinite;
+    }
+
+    @keyframes glowRotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Liquid Glass Reflection */
+    .liquid-glass {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liquid-glass::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 45%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 55%
+      );
+      animation: liquidShine 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes liquidShine {
+      0%, 100% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+      50% { transform: translateX(50%) translateY(50%) rotate(180deg); }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 2rem;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      padding: 2rem;
+      animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .all-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* Name Hover Effect */
+    .name-hover {
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      color: white;
+      transition: all 0.1s ease;
+    }
+
+    .name-hover.active {
+      background: linear-gradient(to right, #00f5ff, #ff00ff, #8000ff, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 100%;
+    }
+  </style>
+</head>
+<body class="h-full">
+  <!-- Animated Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    
+    <!-- Organic Shapes -->
+    <div class="organic-shape" style="width: 300px; height: 300px; top: 20%; left: 60%;"></div>
+    <div class="organic-shape" style="width: 200px; height: 200px; bottom: 30%; right: 10%; animation-delay: -5s;"></div>
+    <div class="organic-shape" style="width: 250px; height: 250px; top: 70%; left: 10%; animation-delay: -10s;"></div>
+  </div>
+
+  
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="glass rounded-full px-6 py-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-lg">JP</span>
+            </div>
+            <span class="font-display font-semibold text-white hidden sm:block name-hover">JIGNESH</span>
+          </div>
+          <div class="flex items-center gap-2 sm:gap-4">
+            <a href="#projects" class="glass-pill !px-4 !py-2 text-sm">Projects</a>
+            <a href="#skills" class="glass-pill !px-4 !py-2 text-sm">Skills</a>
+            <a href="#contact" class="glass-pill !px-4 !py-2 text-sm bg-gradient-to-r from-cyan-500/20 to-purple-500/20">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-24 pb-12 relative">
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 glass rounded-full px-5 py-2 mb-8">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <span class="text-gray-300 text-sm">Available for Creative Projects</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 id="designer-name" class="font-display text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight">
+          <span class="text-white name-hover">JIGNESH</span>
+          <br>
+          <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">PRAJAPATI</span>
+        </h1>
+
+        <!-- Title -->
+        <p id="designer-title" class="text-xl sm:text-2xl text-gray-300 mb-8 font-light tracking-wide">
+          💡 Creative Designer • Digital Artist • Creative Technologist 💡
+        </p>
+
+        <!-- Quote Card -->
+        <div class="glass-card liquid-glass rounded-3xl p-8 sm:p-10 max-w-3xl mx-auto mb-12">
+          <div class="relative">
+            <svg class="w-12 h-12 text-cyan-400/30 absolute -top-2 -left-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p id="hero-quote" class="text-lg sm:text-xl text-gray-200 italic leading-relaxed pl-8">
+              "Design is not just what it looks like — design is how it makes you feel. Every pixel tells a story, every color evokes emotion, and every interaction creates a memory."
+            </p>
+            <div class="mt-6 flex items-center justify-end gap-3">
+              <div class="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400"></div>
+              <span class="text-cyan-400 font-medium">JP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button class="glass-pill flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            View Portfolio
+          </button>
+          <button class="glass-pill flex items-center gap-2" onclick="downloadCV()">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Download CV
+          </button>
+        </div>
+
+        
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 relative">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-4 block">Selected Work</span>
+          <h2 id="projects-title" class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+             <span class="neon-magenta"> Project Showcase</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">🧊"Turning 'What if' into 'Wow'"🧊</p>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Project Card 1 -->
+          <div class="glass-card liquid-glass rounded-3xl overflow-hidden float-card group">
+            <div class="aspect-[6/3] relative overflow-hidden">
+              <img src="pic.html.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+                
+            
+              <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(34, 211, 238, 0.4); border: 1px solid rgba(34, 211, 238, 0.5);" onmouseover="this.style.background='rgba(34, 211, 238, 0.6)'; this.style.borderColor='rgba(34, 211, 238, 0.7)'" onmouseout="this.style.background='rgba(34, 211, 238, 0.4)'; this.style.borderColor='rgba(34, 211, 238, 0.5)'" onmousedown="this.style.background='rgba(34, 211, 238, 0.8)'" onmouseup="this.style.background='rgba(34, 211, 238, 0.6)'" onclick="window.showProjectModal('pic.html.png', 'PROJECT 1', 'linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(34, 211, 238, 0.05))')">View Project →</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs">Project 1</span>
+                <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs"></span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-2">For stock marketer</h3>
+              <p class="text-gray-400 text-sm">📈</p>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div class="glass-card liquid-glass rounded-3xl overflow-hidden float-card group">
+            <div class="aspect-[6/3] relative overflow-hidden">
+              
+              <img src="dhruv 1.html.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+              
+              <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal('dhruv 1.html.jpg', 'PROJECT 2', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs">Project 2</span>
+                <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs"></span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-2">For the Teenagers</h3>
+              <p class="text-gray-400 text-sm">🚀</p>
+            </div>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div class="glass-card liquid-glass rounded-3xl overflow-hidden float-card group">
+            <div class="aspect-[6/3] relative overflow-hidden">
+            
+              <img src="the mystry.html.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+              
+              
+              <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(59, 130, 246, 0.4); border: 1px solid rgba(59, 130, 246, 0.5);" onmouseover="this.style.background='rgba(59, 130, 246, 0.6)'; this.style.borderColor='rgba(59, 130, 246, 0.7)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.4)'; this.style.borderColor='rgba(59, 130, 246, 0.5)'" onmousedown="this.style.background='rgba(59, 130, 246, 0.8)'" onmouseup="this.style.background='rgba(59, 130, 246, 0.6)'" onclick="window.showProjectModal('the mystry.html.png', 'PROJECT 3', 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05))')">View Project →</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs">Project 3</span>
+                <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs"></span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-2">Oceanic Insights </h3>
+              <p class="text-gray-400 text-sm">🔍</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+          <button id="view-all-btn" class="glass-pill inline-flex items-center gap-2">
+            View All Projects
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span class="text-purple-400 text-sm font-medium tracking-widest uppercase mb-4 block"></span>
+          <h2 id="skills-title" class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <span class="neon-cyan"> Creative Skills</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">!! When you learn You grow !!</p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 gap-8">
+          
+          <!-- Skills Card - Design -->
+          <div class="glass-card glow-border rounded-3xl p-8">
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white">Design</h3>
+                <p class="text-gray-400 text-sm">Visual & Brand Identity</p>
+              </div>
+            </div>
+            
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-300">POSTER MAKING</span>
+                  <span class="text-cyan-400 neon-cyan">98%</span>
+                </div>
+                <div class="skill-bar h-3">
+                  <div class="skill-fill bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 98%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-300">YOUTUBE THUMBNAILS</span>
+                  <span class="text-purple-400 neon-purple">89%</span>
+                </div>
+                <div class="skill-bar h-3">
+                  <div class="skill-fill bg-gradient-to-r from-purple-400 to-pink-500" style="width: 89%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-300">VISUAL DESIGN</span>
+                  <span class="text-pink-400 neon-magenta">97%</span>
+                </div>
+                <div class="skill-bar h-3">
+                  <div class="skill-fill bg-gradient-to-r from-pink-400 to-rose-500" style="width: 97%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools Used -->
+        <div class="mt-16">
+          <div class="glass rounded-3xl p-8">
+            <h3 class="text-center text-gray-400 text-sm uppercase tracking-widest mb-8">"The permanent resident of my dock"</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-pink-500 to-purple-600"></div>
+                <span>Photopea</span>
+              </div>
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-blue-500 to-cyan-400"></div>
+                <span>Photoshop</span>
+              </div>
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-orange-500 to-yellow-400"></div>
+                <span>Figma</span>
+              </div>
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-purple-500 to-pink-500"></div>
+                <span>After Effects</span>
+              </div>
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-green-500 to-emerald-400"></div>
+                <span>Canva</span>
+              </div>
+              <div class="glass-pill !px-5 !py-3 flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-br from-red-500 to-rose-400"></div>
+                <span>Capcut</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="mt-16">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Experience Card 1 -->
+            <div class="glass rounded-3xl p-8 text-center">
+              <h3 class="text-gray-400 text-sm uppercase tracking-widest mb-4">Experience</h3>
+              <div class="glass-pill !px-6 !py-4 flex items-center justify-center gap-2 mx-auto w-fit">
+                <span class="text-lg font-semibold">2+ YEARS OF EXPERIENCE</span>
+              </div>
+            </div>
+
+            <!-- Experience Card 2 -->
+            <div class="glass rounded-3xl p-8 text-center">
+              <h3 class="text-gray-400 text-sm uppercase tracking-widest mb-4">Work Hours</h3>
+              <div class="glass-pill !px-6 !py-4 flex items-center justify-center gap-2 mx-auto w-fit">
+                <span class="text-lg font-semibold">1300+ HOURS WORKED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="glass-card liquid-glass rounded-3xl p-8 sm:p-12 text-center">
+          
+          <span class="text-pink-400 text-sm font-medium tracking-widest uppercase mb-4 block">Get In Touch</span>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Let's Create Something
+            <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Amazing</span>
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto mb-10">
+            Have a project in mind? I'd love to hear about it. Let's connect and bring your vision to life.
+          </p>
+          
+          <div class="flex flex-col items-center gap-8 mb-10">
+            <!-- Email -->
+            <div class="flex justify-center">
+              <a href="mailto:jigneshprajapati1012@gmail.com" class="block">
+                <button class="glass-pill flex items-center gap-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  hello@jignesh.design
+                </button>
+              </a>
+            </div>
+           
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-4">
+            <a href="mailto:jigneshprajapati1012@gmail.com" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:-translate-y-2 hover:scale-110">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </a>
+           
+            <a href="https://instagram.com/jignesh._.12" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:-translate-y-2 hover:scale-110">
+               <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="w-5 h-5">
+            </a>
+            <a href="#" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:-translate-y-2 hover:scale-110">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://wa.me/919510297151" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all hover:-translate-y-2 hover:scale-110">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-5 h-5">
+            </a>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/5">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">© 2024 JIGNESH PRAJAPATI. All rights reserved.</p>
+        <p class="text-gray-600 text-sm">Crafted with ❤️ and precision</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- All Projects Modal -->
+  <div id="projects-modal" class="modal">
+    <div class="modal-content relative w-full max-w-6xl mx-4">
+      <button class="modal-close" id="modal-close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <h2 class="font-display text-4xl font-bold text-white mb-4">All Projects</h2>
+      <p class="text-gray-400 mb-8">Explore my complete portfolio of creative works</p>
+
+      <div class="all-projects-grid">
+        <!-- Posters Heading -->
+        <div class="col-span-full text-center mb-4 mt-2">
+          <h3 class="font-display text-lg font-bold text-white">POSTERS/FLYERS</h3>
+        </div>
+        <!-- Project 1 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[6/8] relative overflow-hidden">
+           <img src="COD.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal('COD.jpg', 'PROJECT 4', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 4</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[6/8] relative overflow-hidden">
+            <img src="NIKE POSTER.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal('NIKE POSTER.png', 'PROJECT 5', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 5</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[6/8] relative overflow-hidden">
+            <img src="PSI 2.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal('PSI 2.jpg', 'PROJECT 6', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 6</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+
+
+ <!-- Posters Heading -->
+        <div class="col-span-full text-center mb-4 mt-2">
+          <h3 class="font-display text-lg font-bold text-white">BUSINESS/VISITING CARDS</h3>
+        </div>
+
+
+
+        <!-- Project 4 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="1.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'Z" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal(['1.jpg', '2.jpg'],'PROJECT 7 ', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 7</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="krishnaff.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal(['krishnaff.jpg', 'krishnaff2.jpg'],'PROJECT 8 ', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 8</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="millecious1.jpg" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+             <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal(['millecious1.jpg', 'millecious2.jpg'],'PROJECT 9 ', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 9</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+<!-- Posters Heading -->
+        <div class="col-span-full text-center mb-4 mt-2">
+          <h3 class="font-display text-lg font-bold text-white">YOUTUBE THUMBNAILS</h3>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="TRADING.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+           <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal( 'TRADING.png','PROJECT 10', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+ </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 10</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="GRPAHIC D.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+           
+           <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal(['GRPAHIC D.png'],'PROJECT 11 ', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+ </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 11</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="glass-card liquid-glass rounded-2xl overflow-hidden group cursor-pointer hover:scale-105 transition-transform">
+          <div class="aspect-[4/3] relative overflow-hidden">
+            <img src="X Y Z.png" alt="Nebula Brand System" class="absolute inset-0 w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+      <button type="button" class="glass-pill !py-2 !px-4 text-sm cursor-pointer transition-all" style="background: rgba(236, 72, 153, 0.4); border: 1px solid rgba(236, 72, 153, 0.5);" onmouseover="this.style.background='rgba(236, 72, 153, 0.6)'; this.style.borderColor='rgba(236, 72, 153, 0.7)'" onmouseout="this.style.background='rgba(236, 72, 153, 0.4)'; this.style.borderColor='rgba(236, 72, 153, 0.5)'" onmousedown="this.style.background='rgba(236, 72, 153, 0.8)'" onmouseup="this.style.background='rgba(236, 72, 153, 0.6)'" onclick="window.showProjectModal(['X Y Z.png'],'PROJECT 12 ', 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))')">View Project →</button>
+          </div>
+           </div>
+          <div class="p-4">
+            <h3 class="font-display text-lg font-bold text-white">PROJECT 12</h3>
+            <p class="text-gray-400 text-xs"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const defaultConfig = {
+      designer_name: "JIGNESH PRAJAPATI",
+      designer_title: "Creative Designer • Creative Technologist • Digital Artist",
+      hero_quote: "Design is not just what it looks like — design is how it makes you feel. Every pixel tells a story, every color evokes emotion, and every interaction creates a memory.",
+      projects_title: "Project Showcase",
+      skills_title: "Creative Skills",
+      primary_color: "#00f5ff",
+      secondary_color: "#ff00ff",
+      accent_color: "#8000ff",
+      background_color: "#0a0a1a",
+      text_color: "#ffffff"
+    };
+
+    // Modal functionality
+    const modal = document.getElementById('projects-modal');
+    const viewAllBtn = document.getElementById('view-all-btn');
+    const modalClose = document.getElementById('modal-close');
+
+    viewAllBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Keyboard escape to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Download CV Function
+    function downloadCV() {
+      try {
+        // Use window.location to trigger download
+        window.location.href = 'CV.pdf';
+      } catch (error) {
+        console.error('Error downloading CV:', error);
+        alert('Unable to download CV. Please try again later.');
+      }
+    }
+
+    async function initApp() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            // Update designer name
+            const nameEl = document.getElementById('designer-name');
+            if (nameEl) {
+              const name = config.designer_name || defaultConfig.designer_name;
+              const parts = name.split(' ');
+              if (parts.length >= 2) {
+                nameEl.innerHTML = `<span class="text-white">${parts[0]}</span><br><span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">${parts.slice(1).join(' ')}</span>`;
+              } else {
+                nameEl.innerHTML = `<span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">${name}</span>`;
+              }
+            }
+
+            // Update title
+            const titleEl = document.getElementById('designer-title');
+            if (titleEl) {
+              titleEl.textContent = config.designer_title || defaultConfig.designer_title;
+            }
+
+            // Update quote
+            const quoteEl = document.getElementById('hero-quote');
+            if (quoteEl) {
+              quoteEl.textContent = `"${config.hero_quote || defaultConfig.hero_quote}"`;
+            }
+
+            // Update projects title
+            const projectsEl = document.getElementById('projects-title');
+            if (projectsEl) {
+              const title = config.projects_title || defaultConfig.projects_title;
+              const words = title.split(' ');
+              if (words.length >= 2) {
+                projectsEl.innerHTML = `${words[0]} <span class="neon-magenta">${words.slice(1).join(' ')}</span>`;
+              } else {
+                projectsEl.innerHTML = `<span class="neon-magenta">${title}</span>`;
+              }
+            }
+
+            // Update skills title
+            const skillsEl = document.getElementById('skills-title');
+            if (skillsEl) {
+              const title = config.skills_title || defaultConfig.skills_title;
+              const words = title.split(' ');
+              if (words.length >= 2) {
+                skillsEl.innerHTML = `${words[0]} <span class="neon-cyan">${words.slice(1).join(' ')}</span>`;
+              } else {
+                skillsEl.innerHTML = `<span class="neon-cyan">${title}</span>`;
+              }
+            }
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => window.elementSdk.setConfig({ background_color: value })
+              },
+              {
+                get: () => config.primary_color || defaultConfig.primary_color,
+                set: (value) => window.elementSdk.setConfig({ primary_color: value })
+              },
+              {
+                get: () => config.secondary_color || defaultConfig.secondary_color,
+                set: (value) => window.elementSdk.setConfig({ secondary_color: value })
+              },
+              {
+                get: () => config.accent_color || defaultConfig.accent_color,
+                set: (value) => window.elementSdk.setConfig({ accent_color: value })
+              },
+              {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => window.elementSdk.setConfig({ text_color: value })
+              }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["designer_name", config.designer_name || defaultConfig.designer_name],
+            ["designer_title", config.designer_title || defaultConfig.designer_title],
+            ["hero_quote", config.hero_quote || defaultConfig.hero_quote],
+            ["projects_title", config.projects_title || defaultConfig.projects_title],
+            ["skills_title", config.skills_title || defaultConfig.skills_title]
+          ])
+        });
+      }
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Initialize
+    initApp();
+
+    // Project Modal Functionality
+    window.currentImageIndex = 0;
+    window.currentImages = [];
+    
+    window.showProjectModal = function(imageUrl, title, bgColor = 'linear-gradient(135deg, #111827, #1f2937, #000)') {
+      try {
+        console.log('showProjectModal called with:', imageUrl, title, bgColor);
+        const modal = document.getElementById('project-modal');
+        const img = document.getElementById('modal-image');
+        const titleEl = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const navArrows = document.getElementById('nav-arrows');
+        const counter = document.getElementById('image-counter');
+        
+        console.log('Modal element:', modal);
+        console.log('Image element:', img);
+        console.log('Title element:', titleEl);
+        
+        if (modal) {
+          // Check if imageUrl is an array (multiple images)
+          if (Array.isArray(imageUrl)) {
+            window.currentImages = imageUrl;
+            window.currentImageIndex = 0;
+            if (img) img.src = imageUrl[0];
+            if (navArrows) navArrows.style.display = 'flex';
+            if (counter) {
+              counter.style.display = 'block';
+              counter.textContent = `1 / ${imageUrl.length}`;
+            }
+          } else {
+            // Single image
+            window.currentImages = [imageUrl];
+            window.currentImageIndex = 0;
+            if (img) img.src = imageUrl;
+            if (navArrows) navArrows.style.display = 'none';
+            if (counter) counter.style.display = 'none';
+          }
+          
+          modal.style.display = 'flex';
+          if (titleEl) titleEl.textContent = title;
+          if (modalContent) modalContent.style.background = bgColor;
+          document.body.style.overflow = 'hidden';
+          console.log('Modal shown');
+        } else {
+          console.error('Modal element not found');
+        }
+      } catch(err) {
+        console.error('Error showing modal:', err);
+      }
+    };
+    
+    window.navigateProjectImage = function(direction) {
+      try {
+        if (window.currentImages.length <= 1) return;
+        
+        if (direction === 'next') {
+          window.currentImageIndex = (window.currentImageIndex + 1) % window.currentImages.length;
+        } else if (direction === 'prev') {
+          window.currentImageIndex = (window.currentImageIndex - 1 + window.currentImages.length) % window.currentImages.length;
+        }
+        
+        const img = document.getElementById('modal-image');
+        const counter = document.getElementById('image-counter');
+        if (img) {
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = window.currentImages[window.currentImageIndex];
+            img.style.opacity = '1';
+          }, 150);
+        }
+        if (counter) {
+          counter.textContent = `${window.currentImageIndex + 1} / ${window.currentImages.length}`;
+        }
+      } catch(err) {
+        console.error('Error navigating images:', err);
+      }
+    };
+    
+    window.closeProjectModal = function() {
+      try {
+        const modal = document.getElementById('project-modal');
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      } catch(err) {
+        console.error('Error closing modal:', err);
+      }
+    };
+    
+    // Close when clicking outside
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('project-modal');
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) {
+            window.closeProjectModal();
+          }
+        });
+      }
+    });
+  </script>
+
+  <script>
+  // Ensure modal functions are available
+  if (typeof window.showProjectModal === 'undefined') {
+    window.showProjectModal = function(imageUrl, title) {
+      const modal = document.getElementById('project-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.getElementById('modal-image').src = imageUrl;
+        document.getElementById('modal-title').textContent = title;
+        document.body.style.overflow = 'hidden';
+      }
+    };
+  }
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cf683b9523c71b6',t:'MTc3MTM0NDIwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+<!-- Project Modal -->
+<div id="project-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center;">
+  <div id="modal-content" style="position: relative; max-width: 90%; width: 90%; padding: 24px; background: linear-gradient(135deg, #111827, #1f2937, #000); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); max-height: 85vh; overflow-y: auto; transition: background 0.3s ease;">
+    <button id="close-modal" type="button" class="modal-close" onclick="window.closeProjectModal()">
+      <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <h2 id="modal-title" style="font-size: 26px; font-weight: 700; color: white; margin: 0 0 16px 0; padding-right: 50px;">Project</h2>
+    <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+      <img id="modal-image" src="" alt="Project" style="width: 100%; height: auto; max-height: 65vh; object-fit: contain; transition: opacity 0.3s ease;">
+      <div id="nav-arrows" style="display: none; position: absolute; width: 100%; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 10;">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+          <button type="button" onclick="window.navigateProjectImage('prev')" style="pointer-events: auto; width: 56px; height: 56px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);" onmouseover="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.boxShadow='0 8px 32px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)';">
+            <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <button type="button" onclick="window.navigateProjectImage('next')" style="pointer-events: auto; width: 56px; height: 56px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);" onmouseover="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.boxShadow='0 8px 32px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.05)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)';">
+            <svg style="width: 24px; height: 24px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="image-counter" style="text-align: center; color: #ccc; font-size: 14px; margin-top: 12px;"></div>
+  </div>
+</div>
+
+<script>
+  // Cursor tracking for name gradient effect
+  const nameHovers = document.querySelectorAll('.name-hover');
+  
+  nameHovers.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      element.classList.add('active');
+    });
+    
+    element.addEventListener('mousemove', (e) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const percentX = (x / rect.width) * 100;
+      
+      // Map cursor position to gradient position (0-100 maps to 150 to -50)
+      const gradientPosition = 150 - (percentX * 2);
+      element.style.backgroundPosition = `${gradientPosition}% center`;
+    });
+    
+    element.addEventListener('mouseleave', () => {
+      element.classList.remove('active');
+      element.style.backgroundPosition = '150% center';
+    });
+  });
+</script>
+
+</body>
+</html>
